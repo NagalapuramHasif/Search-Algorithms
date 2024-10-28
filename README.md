@@ -1,4 +1,3 @@
-# Linear Search and Binary search
 ## Aim:
 To write a program to perform linear search and binary search using python programming.
 ## Equipment’s required:
@@ -19,13 +18,48 @@ To write a program to perform linear search and binary search using python progr
 ## Program:
 i)	#Use a linear search method to match the item in a list.
 ```
-
+def linearSearch(array,n,k):
+    for i in range(0,n):
+        if(array[i]==k):
+            return i
+    return -1
+    
+array=eval(input())
+k=eval(input())
+n=len(array)
+array.sort()
+result=linearSearch(array,n,k)
+if(result==-1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ",result)
 
 
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
-
+def binary(array,key,low,high):
+    while(low<=high):
+        mid=low+(high-low)//2
+        if array[mid]==key:
+            return mid
+        elif array[mid]<key:
+            low=mid+1
+        elif array[mid]>key:
+            high=mid-1
+    return -1
+array=eval(input())
+key=int(input())
+array.sort()
+low,high=0,len(array)-1
+print(array)
+result=binary(array,key,low,high)
+if result==-1:
+    print("Element not found ")
+else:
+    print("Element found at index: ",result)
 
 
 
@@ -34,12 +68,34 @@ ii)	# Find the element in a list using Binary Search(Iterative Method).
 iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
 
-
+def binary(array,key,low,high):
+    if high>=low:
+        mid=low+(high-low)//2
+        if array[mid]==key:
+            return mid
+        elif array[mid]<key:
+            return binary(array,key,mid+1,high)
+        elif array[mid]>key:
+            return binary(array,key,low,mid-1)
+    return -1
+array=eval(input())
+key=int(input())
+array.sort()
+low,high=0,len(array)-1
+print(array)
+result=binary(array,key,low,high)
+if result==-1:
+    print("Element not found")
+else:
+    print("Element found at index: ",result)
 
 
 
 ```
 ## Sample Input and Output
+![Screenshot 2024-10-28 092136](https://github.com/user-attachments/assets/5ec79430-8fa5-4cc0-9f28-71742273a070)
+![Screenshot 2024-10-28 092223](https://github.com/user-attachments/assets/28e21b2c-4348-44dc-90ad-36fc851cd44d)
+![Screenshot 2024-10-28 092246](https://github.com/user-attachments/assets/29f75d1f-6d5d-4d1b-a3bc-fac289ea34ec)
 
 
 
